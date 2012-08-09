@@ -167,4 +167,19 @@ def fixupdir(path):
     os.makedirs(parent)
 
 if __name__ == "__main__":
-    sync(sys.argv[1], sys.argv[2])
+    src, dst = "", ""
+    if len(sys.argv) >= 3:
+        src, dst = sys.argv[1], sys.argv[2]
+
+    while True:
+        while src == "" or dst == "":
+            try:
+                argline = input("enter [src] [dst]: ")
+            except (KeyboardInterrupt, SystemExit):
+                sys.exit()
+            args = argline.split()
+            if len(args) >= 2:
+                src, dst = args[0], args[1]
+        sync(src, dst)
+        print("finished!\n")
+        src, dst = "", ""
