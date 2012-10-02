@@ -175,7 +175,8 @@ if __name__ == "__main__":
         while src == "" or dst == "":
             try:
                 argline = input("enter [src] [dst]: ")
-            except (KeyboardInterrupt, SystemExit):
+            #except (KeyboardInterrupt, SystemExit):
+            except:
                 sys.exit()
             args = argline.split()
             if len(args) >= 2:
